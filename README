@@ -1,89 +1,30 @@
+=========================================================================
+HiPR HiPR.sh
 
-# view POD
+# view documentation 
+perldoc HiPR.sh
+pod2text HiPR.sh
+
+=========================================================================
+HiPR MCMC HiPR_MCMC_wrapper.pl
+
+# view documentation
 perldoc -F HiPR_MCMC_wrapper.pl
+pod2text HiPR_MCMC_wrapper.pl
+
+Usage:
+HiPR.sh reads_file rates_file structure_file [-outDir OutputDir] [-locusName LocusName] [-n Niter] [-numCPU Ncpus]  [-rmin MinReadLength] [-rmax MaxReadLength]"
+
+Example:
+bash HiPR.sh test.reads test.rates test.start_structures -rmin 15 -rmax 45 -n 1000 -locusName test
+HiPR algorithm complete
+------------------------------
+
+Consensus secondary structure:
+HiPR_output/test.HiPR_structure.txt
 
 
-NAME
-       HiPR - Bayesian Markov chain Monte Carlo inference of RNA secondary
-       structures.
+Base-pairing posteriors at each nucleotide:
+HiPR_output/test.HiPR_posterior.txt
 
-SYNOPSIS
-       HiPR [options] reads_file rates_file structure_file
-
-ARGUMENTS
-       reads_file
-               File containing either DMS-seq or dsRNA/ssNRA-seq reads.
-
-       rates_file
-               File containing enzyme digestion rates. The first line should
-               contain four comma-delimited rates corresponding to digestion
-               probabilities 3' of paired [A,C,U,G] nucleotides.  The second
-               line should contain rates 3' of unpaired [A,C,U,G] positions.
-
-       structure_file
-               File containing the sequence and structure of the RNA of
-               interest. The provided dot-paren structure is used as the
-               initial estimate.
-
-OPTIONS
-       -rmin INT
-               Minimum read length. Fragments shorter than this will not be
-               included in likelihood calcuations. Defaults to 40.
-
-       -rmax INT
-               Maximum read length. Fragments longer than this will not be
-               included in likelihood calcuations. Defaults to 80.
-
-       -n INT  Number of MCMC iterations to run. Defaults to 100000.
-
-       -numCPU INT
-               Maximum number of CPUs to use. Defaults to 1.
-
-       -burn_in INT
-               Number of MCMC iterations to discard as burn-in when computing
-               posterior. Defaults to 10000.
-
-       -samp INT
-               Sampling frequency of MCMC iterations after burn-in. Defaults
-               to 100.
-
-       -t [sd] Selects which parameter to optimize. 's' indicates structure
-               and 'd' indicates digestion rates. Defaults to 's' for
-               structure estimation.
-
-       -m INT  Select likelihood model to use (1=dsRNA/ssRNA-seq, 2=DMS-seq)
-
-       -mc DOUBLE
-               Proportionality constant used in Metropolis-Hastings acceptance
-               criterion (Default = 999.0)
-
-       -likelihood_only
-               Only compute the initial log-likelihood (do not perform MCMC
-               iterations)
-
-       -outdir dir
-               Directory to output results. Defaults to 'HiPR_output/'.
-
-       -help   Print a brief help message and exits.
-
-       -man    Prints the manual page and exits.
-
-DESCRIPTION
-       Estimate secondary structure and base pairing posteriors for a given
-       RNA sequence based on the distribution of read fragments along the
-       locus.
-
-       This program requires a file containing the sequence and initial
-       secondary structure of an RNA of interest, a file containing DMS-seq or
-       dsRNA-seq/ssRNA-seq reads, and a file containing the initial estimates
-       of per-nucleotide modification rates. A Bayesian MCMC algorithm is then
-       used to estimate the base pairing posterior that best fits the observed
-       sequencing reads. The results and intermediate files are written to a
-       directory (HiPR_output/ by default).
-
-       The output file posterior.txt contains the base pairing posteriors at
-       each nucleotide position, one entry per line.
-
-       The output file structure.txt contains the consensus secondary
-       structure.
 
