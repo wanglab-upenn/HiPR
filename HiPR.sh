@@ -1,9 +1,26 @@
 # functions
-function die {
+
+function get_ncpus() {
+   # Linux, MAC
+   ncpu=$(getconf _NPROCESSORS_ONLN 2>/dev/null)
+   # FreeBSD
+   [ -z "$ncpu" ] && ncpu=$(getconf NPROCESSORS_ONLN)
+   # Solaris
+   [ -z "$ncpu" ] && ncpu=$(ksh93 -c 'getconf NPROCESSORS_ONLN')
+   # Windows
+   [ -z "$ncpu" ] && ncpu=$(echo %NUMBER_OF_PROCESSORS%)
+   # Other... 
+   [ -z "$ncpu" ] && ncpu=1  
+
+   echo "${ncpu}"
+}
+
+
+
+function die() {
    echo "$1" >&2
    exit 1
 }
-
 
 VIEWDOC=pod2text
 command -v "${VIEWDOC}" > /dev/null 2>&1 || { VIEWDOC=""; }
@@ -108,7 +125,8 @@ head -n 1 ${STARTSTRUCTFILE} > ${OUTDIR}/${LOCUSNAME}.seq # primary sequence
 echo "#chains=${NCHAIN}"
 
 # set #CPUs to use
-ncpus=$(cat /proc/cpuinfo | awk '{if ($0~/^processor/) ++ncpu}END{print ncpu+0}') 
+#ncpus=$(cat /proc/cpuinfo | awk '{if ($0~/^processor/) ++ncpu}END{print ncpu+0}') 
+ncpus=$(get_ncpus)
 echo >&2 "#cpus detected=${ncpus}"
 echo >&2 "#cpus requested=${NCPU}"
 if [ "${ncpus}" -gt "0" ] && [ "$NCPU" -gt "${ncpus}" ]; then
