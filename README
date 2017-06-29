@@ -1,16 +1,20 @@
+
+HiPR - High-throughput Probabilistic inference of RNA secondary structures 
+
+Estimate secondary structure and base pairing posteriors for a given RNA sequence based on the distribution of read fragments along the locus.
+
+This program requires a file containing the sequence and initial secondary structure of an RNA of interest, a file containing DMS-seq reads along the locus, and a file containing the initial estimates of per-nucleotide modification rates. A Bayesian MCMC algorithm is then used to estimate the base pairing posterior that best fits the observed sequencing reads. The results and intermediate files are written to a directory (HiPR_output/ by default).
+
+The output file HiPR_posterior.txt contains the base pairing posteriors at each nucleotide position, one entry per line.
+
+The output file HiPR_structure.txt contains the consensus secondary structure.
+
 =========================================================================
 HiPR HiPR.sh
 
-# view documentation 
+View documentation:
 perldoc HiPR.sh
 pod2text HiPR.sh
-
-=========================================================================
-HiPR MCMC HiPR_MCMC_wrapper.pl
-
-# view documentation
-perldoc -F HiPR_MCMC_wrapper.pl
-pod2text HiPR_MCMC_wrapper.pl
 
 Usage:
 HiPR.sh reads_file rates_file structure_file [-outDir OutputDir] [-locusName LocusName] [-n Niter] [-numCPU Ncpus]  [-rmin MinReadLength] [-rmax MaxReadLength]"
