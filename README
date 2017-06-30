@@ -38,6 +38,20 @@ HiPR_output/test.HiPR_posterior.txt
 Software Requirements:
 Linux-based operating system, or Mac OS.
 Perl (v5.x). Important: Forks::Super module is required to run HiPR. To install, e.g., perl -MCPAN -e "install 'Forks::Super'"
-Standard POSIX programs (awk, grep, bash, etc)
+Boost C++ libraries  
+Standard POSIX programs (awk, grep, bash)
+C++ compiler (for re-compilation if necessary)
 
+===========================================================================
 
+HiPR.sh -- main HiPR pipeline
+HiPR_MCMC -- Linux executable (may need to be recomp
+HiPR_MCMC.mac -- Mac executable
+HiPR_MCMC_wrapper.pl -- wrapper script 
+INSTALL -- instructions for re-compilation and installion of required modules
+README -- this file
+dms_get_majority_structure.sh -- auxiliary script for computing consensus structure
+dms_mcmc_collect_structures.sh -- auxiliary script for collecting sampled structures
+test.rates -- example file with per-nucleotide modification rates (ACUG)
+test.reads -- example file in collapsed reads format
+test.start_structures -- example file with sequence and initial structure estimate(s)
