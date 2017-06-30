@@ -21,6 +21,13 @@ my $SCRIPTDIR = dirname(abs_path(__FILE__));
 my $HOMEDIR = home();
 my $hiprDir="$SCRIPTDIR";
 my $HIPRmcmc="$hiprDir/HiPR_MCMC";
+
+my $ostype=$^O;
+if ( $ostype eq "darwin" )
+{
+   $HIPRmcmc="$hiprDir/HiPR_MCMC.mac";
+}
+
 print "$HIPRmcmc\n"; 
 
 my $readsFile = "";

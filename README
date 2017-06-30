@@ -12,7 +12,10 @@ The output file HiPR_structure.txt contains the consensus secondary structure.
 =========================================================================
 HiPR HiPR.sh
 
-View documentation:
+=========================================================================
+Operating Instructions:
+
+Documentation:
 perldoc HiPR.sh
 pod2text HiPR.sh
 
@@ -30,5 +33,11 @@ HiPR_output/test.HiPR_structure.txt
 
 Base-pairing posteriors at each nucleotide:
 HiPR_output/test.HiPR_posterior.txt
+
+===========================================================================
+Software Requirements:
+Linux-based operating system, or Mac OS.
+Perl (v5.x). Important: Forks::Super module is required to run HiPR. To install, e.g., perl -MCPAN -e "install 'Forks::Super'"
+Standard POSIX programs (awk, grep, bash, etc)
 
 

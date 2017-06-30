@@ -1,0 +1,8 @@
+#perl -MCPAN -e "CPAN::Shell->notest('install', 'Math::Bigint')"
+
+# to recompile HiPR_MCMC
+g++ -I/usr/local/include/ HiPR_MCMC.cpp
+
+# to install required PERL modules
+perl -MCPAN -e "install 'File::HomeDir'"
+perl -MCPAN -e "install 'Forks::Super'"

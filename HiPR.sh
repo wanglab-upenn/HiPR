@@ -1,5 +1,6 @@
-# functions
+set -e
 
+# functions
 function get_ncpus() {
    # Linux, MAC
    ncpu=$(getconf _NPROCESSORS_ONLN 2>/dev/null)
@@ -28,6 +29,9 @@ command -v "${VIEWDOC}" > /dev/null 2>&1 || { VIEWDOC=""; }
 scriptDir=`dirname $0`
 PATH=$PATH:${scriptDir}
 mcmcCmd=HiPR_MCMC
+if [ $OSTYPE == "darwin"* ]; then
+  mcmcCmd=HiPR_MCMC.mac
+fi
 mcmcCmdWrapper=HiPR_MCMC_wrapper.pl
 
 
@@ -133,6 +137,10 @@ if [ "${ncpus}" -gt "0" ] && [ "$NCPU" -gt "${ncpus}" ]; then
   echo >&2 "#requesting ${ncpus}"
   NCPU="${ncpus}"
 fi
+
+hasForks=$(perl -MForks::Super -e "print \"1\"" || echo "0")
+[ "${hasForks}" -ne "1" ] && die "ERROR: Forks::Super module is not installed...\n"
+#perl -MCPAN -e 'install Forks::Super'
 
 perl ${HIPRMCMCwrapper} -id ${LOCUSNAME} -rmin ${MINREADLEN} -rmax ${MAXREADLEN} -burn_in 10 -samp 10 -t sd -numCPU ${NCPU} -n ${NITER} -m ${MODELTYPE} -outdir ${OUTDIR} ${COLLAPSEDREADFILE} ${MODRATEFILE} ${STARTSTRUCTFILE} > /dev/null && bash dms_mcmc_collect_structures.sh ${LOCUSNAME} ${OUTDIR} ${NCHAIN} > ${OUTDIR}/${LOCUSNAME}.mcmc.combined.struct && bash dms_get_majority_structure.sh ${OUTDIR}/${LOCUSNAME}.mcmc.combined.struct && cat ${OUTDIR}/${LOCUSNAME}.seq ${OUTDIR}/${LOCUSNAME}.mcmc.combined.struct.majority_consensus > ${OUTDIR}/${LOCUSNAME}.mcmc.majority_consensus
 
