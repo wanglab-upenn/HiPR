@@ -22,7 +22,7 @@ pod2text HiPR.sh
 Usage:
 HiPR.sh reads_file rates_file structure_file [-outDir OutputDir] [-locusName LocusName] [-n Niter] [-numCPU Ncpus]  [-rmin MinReadLength] [-rmax MaxReadLength]"
 
-Example:
+Example of running HiPR using included sample files:
 bash HiPR.sh test.reads test.rates test.start_structures -rmin 15 -rmax 45 -n 1000 -locusName test
 HiPR algorithm complete
 ------------------------------
@@ -45,7 +45,7 @@ C++ compiler (for re-compilation if necessary)
 ===========================================================================
 
 HiPR.sh -- main HiPR pipeline
-HiPR_MCMC -- Linux executable (may need to be recomp
+HiPR_MCMC -- Linux executable (may need to be recompiled)
 HiPR_MCMC.mac -- Mac executable
 HiPR_MCMC_wrapper.pl -- wrapper script 
 INSTALL -- instructions for re-compilation and installion of required modules

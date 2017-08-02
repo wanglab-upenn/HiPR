@@ -197,6 +197,13 @@ The output file HiPR_structure.txt contains the consensus secondary structure.
 
 Mandatory files must be specified before any other optional arguments and must exist, otherwise a error or usage message will be shown. 
 
+Software Requirements:
+Linux-based operating system, or Mac OS.
+Perl (v5.x). Important: Forks::Super module is required to run HiPR. To install, e.g., perl -MCPAN -e "install 'Forks::Super'", or see INSTALL.
+Boost C++ libraries
+Standard POSIX programs (awk, grep, bash)
+C++ compiler (for re-compilation, if necessary)
+
 
 =head1 LICENSE
 
