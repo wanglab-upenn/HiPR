@@ -8,3 +8,6 @@
 ### # to install required PERL modules
 # perl -MCPAN -e "install 'File::HomeDir'"
 # perl -MCPAN -e "install 'Forks::Super'"
+# if Forks::Super fails to install due to tests, try skipping testing altogether:
+# perl -MCPAN -e shell
+# notest install Forks::Super
