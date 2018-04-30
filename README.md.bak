@@ -68,7 +68,7 @@ HiPR_MCMC.mac -- Mac executable
 
 HiPR_MCMC_wrapper.pl -- wrapper script 
 
-INSTALL.md -- instructions for re-compilation and installation of required modules
+INSTALL.md -- instructions for re-compilation and installion of required modules
 
 README.md -- this file
 
@@ -90,11 +90,11 @@ Two lines of comma-separated modification rates for A, C, U, and G nucleotides f
 0.0278,0.0112,0.0064,0.0091
 0.2027,0.0844,0.0110,0.0099
 ````
-Modification rates for unpaired nucleotides are assumed to be always greater than modification rates for paired positions.
+Modification rates for unpaired nucleotides are asssumed to be always greater than modification rates for paired positions.
 Also see `test.rates` for an example.
 
 ### Reads file:
-Contains observed read intervals.
+Contains observered read intervals.
 Each line (read interval) has the following format:
 ```
 read<ReadNumber>@@<ReadCount>@@<ReadLength> <ReadStart0> <ReadEnd0> 3
