@@ -68,3 +68,40 @@ HiPR_output/test.HiPR_posterior.txt
 - test.dmsmapseq.rates -- example file with per-nucleotide modification rates (ACUG)
 - test.dmsmapseq.reads -- example file in collapsed DMS-MaPseq reads format
 - test.start_structures -- example file with sequence and initial structure estimate(s)
+
+## File format
+
+### MaPseq read file
+Contains observed reads and mismatch information.
+Each line corresponds to a read interval / mismatch combination, in the following format:
+read<ReadNumber>@@<ReadCount>@@<ReadLength> <ReadStart0> <ReadEnd0> <mismatch_positions(CSV):reference_nucleotides(CSV)>
+E.g.,
+```
+read1@@1@@48	2	49	10,15:G,A
+read2@@1@@48	2	49	10,18,28:G,A,A
+read3@@1@@48	2	49	10,18:G,A
+```
+where the second read interval (read2) correspond to a single read with the length=48nts spanning positions `2...49` (0-based!) with mismatches at read positions 10, 18, 28 corresponding to G, A, A reference nucleotides.
+
+### DMS modification rates
+Modification rates in comma-separated format for paired (first line) and unpaired (second line) nucleotides (in A,C,U,G order).
+See `test.dmsmapseq.rates` for an example.
+
+### Starting structures
+
+Contains one or more sequences and starting structures:
+```
+<sequence1>
+<secondary-structure-in-parenthesis-format1>
+<sequence2>
+<secondary-structure-in-parenthesis-format2>
+...
+```
+E.g.,
+```
+UAACUCUAAUUCCCAUUUUGCAAAAUUUCCAGUACCUUUGUCACAAUCCUAACACAUUAUCGGGAGCAGUGUCUUCCAUAAUGUAUAAAGAACAAGGUAGUUUUUACCUACCACAGUGUCUGUAUCGGAGACAGUGA
+..............(((.((((((............)))).)).))).((...(((((((.(((((......))))))))))))....)).....(((((.......))))).((.(((((.......))))).)). (-30.00)
+UAACUCUAAUUCCCAUUUUGCAAAAUUUCCAGUACCUUUGUCACAAUCCUAACACAUUAUCGGGAGCAGUGUCUUCCAUAAUGUAUAAAGAACAAGGUAGUUUUUACCUACCACAGUGUCUGUAUCGGAGACAGUGA
+..............(((.((((((............)))).)).))).((...(((((((.(((((......))))))))))))....)).....((((((....).))))).((.(((((.......))))).)). (-30.00)
+```
+(also see `test.starting_structures` for an example)
