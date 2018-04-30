@@ -37,7 +37,6 @@ If the above executes successfully, concluding messages should be displayed:
 
 ``
 HiPR algorithm complete
-------------------------------
 
 Consensus secondary structure:
 HiPR_output/test.HiPR_structure.txt
