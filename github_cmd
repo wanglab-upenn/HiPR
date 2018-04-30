@@ -1,7 +1,0 @@
-/appl/git-2.5.0/bin/git init
-/appl/git-2.5.0/bin/git add .
-git commit -m "First commit"
-git remote add origin https://github.com/wanglab-upenn/HiPR.git
-git remote -v
-git push -u origin master
-
