@@ -24,18 +24,18 @@ perldoc HiPR.sh
 pod2text HiPR.sh
 
 ### Usage:
-``
+```
 HiPR.sh reads_file rates_file structure_file [-outDir OutputDir] [-locusName LocusName] [-n Niter] [-numCPU Ncpus]  [-rmin MinReadLength] [-rmax MaxReadLength]"
-``
+```
 
 ### Example of running HiPR using included sample files:
-``
+```
 bash HiPR.sh test.reads test.rates test.start_structures -rmin 15 -rmax 45 -n 1000 -locusName test
-``
+```
 
 If the above executes successfully, concluding messages should be displayed:
 
-``
+```
 HiPR algorithm complete
 
 Consensus secondary structure:
@@ -43,7 +43,7 @@ HiPR_output/test.HiPR_structure.txt
 
 Base-pairing posteriors at each nucleotide:
 HiPR_output/test.HiPR_posterior.txt
-``
+```
 
 ===========================================================================
 ## Software Requirements:
