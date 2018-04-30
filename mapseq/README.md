@@ -14,7 +14,7 @@ The output file HiPR_posterior.txt contains the base pairing posteriors at each 
 The output file HiPR_structure.txt contains the consensus secondary structure.
 
 =========================================================================
-## HiPR_mapseq.sh
+## HiPR MaPseq main script (HiPR_mapseq.sh)
 
 =========================================================================
 ### Operating Instructions:
