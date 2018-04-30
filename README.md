@@ -118,9 +118,11 @@ Contains one or more sequences and starting structures:
 ...
 ```
 E.g.,
+```
 AACCUGU
 (.....)
 AACCUGU
 .(....)
+```
 (also see `test.starting_structures` for an example)
 

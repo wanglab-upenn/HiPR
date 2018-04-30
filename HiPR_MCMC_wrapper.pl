@@ -13,8 +13,6 @@ use File::HomeDir qw(home);
 use File::Basename;
 use Cwd 'abs_path';
 my $SCRIPTDIR = dirname(abs_path(__FILE__));
-#print "__FILE__=", __FILE__ ,"\n";
-#print "script dir=", $SCRIPTDIR, "\n";
 
 # flags and variables
 
