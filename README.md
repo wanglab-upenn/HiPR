@@ -9,9 +9,9 @@ This program requires a file containing the sequence and initial secondary struc
 ## Output
 The results and intermediate files are written to a directory (HiPR_output/ by default).
 
-The output file HiPR_posterior.txt contains the base pairing posteriors at each nucleotide position, one entry per line.
+The output file `HiPR_posterior.txt` contains the base pairing posteriors at each nucleotide position, one entry per line.
 
-The output file HiPR_structure.txt contains the consensus secondary structure.
+The output file `HiPR_structure.txt` contains the consensus secondary structure.
 
 =========================================================================
 ## HiPR main script (HiPR.sh)
@@ -68,9 +68,9 @@ HiPR_MCMC.mac -- Mac executable
 
 HiPR_MCMC_wrapper.pl -- wrapper script 
 
-INSTALL -- instructions for re-compilation and installion of required modules
+INSTALL.md -- instructions for re-compilation and installion of required modules
 
-README -- this file
+README.md -- this file
 
 dms_get_majority_structure.sh -- auxiliary script for computing consensus structure
 
@@ -81,3 +81,42 @@ test.rates -- example file with per-nucleotide DMS modification rates (ACUG)
 test.reads -- example file in collapsed reads format
 
 test.start_structures -- example file with sequence and initial structure estimate(s)
+
+## File formats
+
+### Rates file:
+Two lines of comma-separated modification rates for A, C, U, and G nucleotides for paired (first line) and unpaired states (second line), e.g.,:
+```
+0.0278,0.0112,0.0064,0.0091
+0.2027,0.0844,0.0110,0.0099
+````
+Modification rates for unpaired nucleotides are asssumed to be always greater than modification rates for paired positions.
+Also see `test.rates` for an example.
+
+### Reads file:
+Contains observered read intervals.
+Each line (read interval) has the following format:
+read<ReadNumber>@@<ReadCount>@@<ReadLength> <ReadStart0> <ReadEnd0> 3
+E.g.,
+```
+read1@@1@@33	0	32	3
+read2@@6@@37	0	36	3
+read3@@1@@40	0	39	3
+...
+```
+where the second read interval (read2) corresponds to 6 reads with length=37 that span positions `0...36`. Also see `test.reads` for an example.
+
+### Starting structures file
+Contains one or more sequences and starting structures:
+<sequence1>
+<secondary-structure-in-parenthesis-format1>
+<sequence2>
+<secondary-structure-in-parenthesis-format2>
+
+E.g.,
+AACCUGU
+(.....)
+AACCUGU
+.(....)
+(also see `test.starting_structures` for an example)
+
