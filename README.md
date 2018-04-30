@@ -34,6 +34,7 @@ bash HiPR.sh test.reads test.rates test.start_structures -rmin 15 -rmax 45 -n 10
 ``
 
 If the above executes successfully, concluding messages should be displayed:
+
 ``
 HiPR algorithm complete
 ------------------------------
@@ -49,9 +50,13 @@ HiPR_output/test.HiPR_posterior.txt
 ===========================================================================
 ## Software Requirements:
 Linux-based operating system, or Mac OS.
+
 Perl (v5.x). Important: Forks::Super module is required to run HiPR. To install, e.g., perl -MCPAN -e "install 'Forks::Super'"
+
 Boost C++ libraries  
+
 Standard POSIX programs (awk, grep, bash)
+
 C++ compiler (for re-compilation if necessary)
 
 ===========================================================================
