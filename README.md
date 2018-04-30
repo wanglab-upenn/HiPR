@@ -110,11 +110,13 @@ where the second read interval (read2) corresponds to 6 reads with length=37 tha
 
 ### Starting structures file
 Contains one or more sequences and starting structures:
+```
 <sequence1>
 <secondary-structure-in-parenthesis-format1>
 <sequence2>
 <secondary-structure-in-parenthesis-format2>
-
+...
+```
 E.g.,
 AACCUGU
 (.....)
