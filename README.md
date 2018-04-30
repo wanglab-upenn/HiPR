@@ -96,7 +96,9 @@ Also see `test.rates` for an example.
 ### Reads file:
 Contains observered read intervals.
 Each line (read interval) has the following format:
+```
 read<ReadNumber>@@<ReadCount>@@<ReadLength> <ReadStart0> <ReadEnd0> 3
+```
 E.g.,
 ```
 read1@@1@@33	0	32	3
