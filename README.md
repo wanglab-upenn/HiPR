@@ -4,7 +4,7 @@
 Estimate secondary structure and base pairing posteriors for a given RNA sequence based on the distribution of read fragments along the locus.
 
 ## Input
-This program requires a file containing the sequence and initial secondary structure of an RNA of interest, a file containing DMS-seq reads along the locus, and a file containing the initial estimates of per-nucleotide modification rates. A Bayesian MCMC algorithm is then used to estimate the base pairing posterior that best fits the observed sequencing reads.
+This program requires a file containing the sequence and initial secondary structure of an RNA of interest (see e.g., `test.starting_structures`), a file containing reverse trascriptase (RT) stop-based (DMS-Seq/Structure-seq) read-out (e.g., `test.reads`), and a file containing the initial estimates of per-nucleotide modification rates (e.g., `test.rates`). A Bayesian MCMC algorithm is then used to estimate the base pairing posterior that best fits the observed sequencing reads.
 
 ## Output
 The results and intermediate files are written to a directory (HiPR_output/ by default).
