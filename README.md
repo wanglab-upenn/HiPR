@@ -41,7 +41,6 @@ HiPR algorithm complete
 Consensus secondary structure:
 HiPR_output/test.HiPR_structure.txt
 
-
 Base-pairing posteriors at each nucleotide:
 HiPR_output/test.HiPR_posterior.txt
 ``
