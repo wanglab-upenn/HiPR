@@ -49,7 +49,8 @@ HiPR_output/test.HiPR_posterior.txt
 ===========================================================================
 ## Software Requirements:
 - Linux-based operating system, or Mac OS.
-- Perl (v5.x). Important: Forks::Super module is required to run HiPR. To install, e.g., perl -MCPAN -e "install 'Forks::Super'"
+- Perl (v5.x). Important: Forks::Super module is required to run HiPR. To install, e.g., perl -MCPAN -e "install 'Forks::Super'" or if it fails to install because some tests are failing during installation, these tests can be skipped altogether: ```perl -MCPAN -e "notest('install','Forks::Super')"```
+
 - Boost C++ libraries  
 - Standard POSIX programs (awk, grep, bash)
 - C++ compiler (for re-compilation if necessary)
